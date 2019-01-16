@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加载中...</title>
+    <link rel="stylesheet" href="./spin.css">
+    <style>
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        min-height: 100%;
+    }
+    .list-table {
+        width: 100%;
+        border-collapse: 0;
+        border-spacing: 0;
+    }
+    .list-table thead tr th {
+        border-top: 1px solid #d2d2d2;
+        border-left: 1px solid #d2d2d2;
+        background-color: #E1F5FC;
+        text-align: center;
+        height: 30px;
+        padding: 2px 5px;
+    }
+    .list-table thead tr th:last-child {
+        border-right: 1px solid #d2d2d2;
+    }
+    .list-table tr td {
+        border-top: 1px solid #d2d2d2;
+        border-left: 1px solid #d2d2d2;
+        padding: 5px;
+    }
+    .list-table tr td:last-child {
+        border-right: 1px solid #d2d2d2;
+    }
+    .list-table tr:last-child td {
+        border-bottom: 1px solid #d2d2d2;
+    }
+    .code {
+        background: #f8f8f8;
+        border: 1px solid #ccc;
+        margin-bottom: 2em;
+        padding: 10px;
+    }
+    button {
+        cursor: pointer;
+        background-color: aquamarine;
+        border-spacing: 0;
+        white-space: nowrap;
+        border: 1px solid aquamarine;
+    }
+    button:hover,
+    button:visited,
+    button:active,
+    button:focus {
+        background-color: aqua;
+        border: 1px solid aqua;
+        outline: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>使用</h1>
+        <h1>在页面中引入必要的文件</h1>
+        <div class="code">
+            &lt;link rel="stylesheet" href="spin.css"&gt;<br>
+            &lt;script src="spin.js"&gt;&lt;/script&gt;<br>
+        </div>
+        <h2>基本使用,没有Text显示</h2>
+        <div class="code-container" id="code" style="display:none;">
+            <h3>HTML</h3>
+            <div class="code">
+                &lt;div id="demo" &gt;<br>
+                &lt;/div&gt;
+            </div>
+            <h3>JavaScript</h3>
+            <div class="code">
+                var spin =new SpinLoading({
+                text: false
+                });
+            </div>
+        </div>
+        <h3>效果一</h3>
+        <div id="demo" style="width: 200px;height: 80px;border: 1px solid #d2d2d2; background-color: beige;"></div>
+        <div id="test" style="width: 200px;padding:10px;text-align: center">
+            <button type="button" onclick="viewCode('code',event)">查看代码</button>
+        </div>
+        <h2>表格中使用（默认）</h2>
+        <div class="code-container" id="code1" style="display:none;">
+            <h3>HTML</h3>
+            <div class="code">
+                &lt;div id="demo1" &gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;...&lt;/table&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;button type="button" onclick="myspin1.close()"&gt;关闭spin&lt;/button&gt;<br>
+                &lt;button type="button" onclick="myspin1.show()"&gt;打开spin&lt;/button&gt;
+
+            </div>
+            <h3>JavaScript</h3>
+            <div class="code">
+                var myspin1 = new SpinLoading('demo1');
+            </div>
+        </div>
+        <h3>效果二</h3>
+        <div id="demo1">
+            <table class='list-table'>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>地址</th>
+                        <th>邮箱</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>张三</td>
+                    <td>北京市海淀区</td>
+                    <td>zhangsan@qq.com</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>深圳龙岗区</td>
+                    <td>lisi@qq.com</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>北京市海淀区</td>
+                    <td>zhangsan@qq.com</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>深圳龙岗区</td>
+                    <td>lisi@qq.com</td>
+                </tr>
+            </table>
+        </div>
+        <div id="test1" style="padding:10px;text-align: center">
+            <button type="button" onclick="viewCode('code1',event)">查看代码</button>
+            <button type="button" onclick="myspin1.close()">关闭spin</button>
+            <button type="button" onclick="myspin1.show()">打开spin</button>
+        </div>
+        <h2>自定义提示,5s 后自动消失</h2>
+        <div class="code-container" id="code2" style="display:none;">
+            <h3>HTML</h3>
+            <div class="code">
+                &lt;div id="demo2" &gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;...&lt;/table&gt;<br>
+                &lt;/div&gt;
+            </div>
+            <h3>JavaScript</h3>
+            <div class="code">
+                var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...' });
+                <br>
+                setTimeout(function () {
+                myspin2.close()
+                }, 5000)
+            </div>
+        </div>
+        <h3>效果三</h3>
+        <div id="demo2">
+            <table class='list-table'>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>地址</th>
+                        <th>邮箱</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>张三</td>
+                    <td>北京市海淀区</td>
+                    <td>zhangsan@qq.com</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>深圳龙岗区</td>
+                    <td>lisi@qq.com</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>北京市海淀区</td>
+                    <td>zhangsan@qq.com</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>深圳龙岗区</td>
+                    <td>lisi@qq.com</td>
+                </tr>
+            </table>
+        </div>
+        <div id="test2" style="padding:10px;text-align: center">
+            <button type="button" onclick="viewCode('code2',event)">查看代码</button>
+        </div>
+    </div>
+    <script src="./spin.js"></script>
+    <script>
+        var myspin = new SpinLoading('demo', { text: false });
+        var myspin1 = new SpinLoading('demo1');
+        var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...' });
+        setTimeout(function () {
+            myspin2.close()
+        }, 5000)
+        function viewCode(ele, event) {
+            var obj = document.getElementById(ele);
+            var isShow = obj.style.display;
+            if (isShow == 'none') {
+                obj.style.display = 'block';
+            } else {
+                obj.style.display = 'none';
+            }
+            var showText = event.srcElement.innerHTML;
+            if (showText == '查看代码') {
+                event.srcElement.innerHTML = '隐藏代码';
+            } else {
+                event.srcElement.innerHTML = '查看代码';
+            }
+        }
+    </script>
+</body>
+
+</html>
