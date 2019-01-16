@@ -4,4 +4,4 @@
 
 
 
-![效果图](D:\GitHub\loader\loader.gif)
+![效果图](/zjinger/js-loading/blob/master/loader.gif?raw=true)
