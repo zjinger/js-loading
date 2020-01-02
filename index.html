@@ -8,64 +8,74 @@
     <title>加载中...</title>
     <link rel="stylesheet" href="./spin.css">
     <style>
-    body {
-        font-size: 14px;
-    }
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        min-height: 100%;
-    }
-    .list-table {
-        width: 100%;
-        border-collapse: 0;
-        border-spacing: 0;
-    }
-    .list-table thead tr th {
-        border-top: 1px solid #d2d2d2;
-        border-left: 1px solid #d2d2d2;
-        background-color: #E1F5FC;
-        text-align: center;
-        height: 30px;
-        padding: 2px 5px;
-    }
-    .list-table thead tr th:last-child {
-        border-right: 1px solid #d2d2d2;
-    }
-    .list-table tr td {
-        border-top: 1px solid #d2d2d2;
-        border-left: 1px solid #d2d2d2;
-        padding: 5px;
-    }
-    .list-table tr td:last-child {
-        border-right: 1px solid #d2d2d2;
-    }
-    .list-table tr:last-child td {
-        border-bottom: 1px solid #d2d2d2;
-    }
-    .code {
-        background: #f8f8f8;
-        border: 1px solid #ccc;
-        margin-bottom: 2em;
-        padding: 10px;
-    }
-    button {
-        cursor: pointer;
-        background-color: aquamarine;
-        border-spacing: 0;
-        white-space: nowrap;
-        border: 1px solid aquamarine;
-    }
-    button:hover,
-    button:visited,
-    button:active,
-    button:focus {
-        background-color: aqua;
-        border: 1px solid aqua;
-        outline: 0;
-    }
+        body {
+            font-size: 14px;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            min-height: 100%;
+        }
+
+        .list-table {
+            width: 100%;
+            border-collapse: 0;
+            border-spacing: 0;
+        }
+
+        .list-table thead tr th {
+            border-top: 1px solid #d2d2d2;
+            border-left: 1px solid #d2d2d2;
+            background-color: #E1F5FC;
+            text-align: center;
+            height: 30px;
+            padding: 2px 5px;
+        }
+
+        .list-table thead tr th:last-child {
+            border-right: 1px solid #d2d2d2;
+        }
+
+        .list-table tr td {
+            border-top: 1px solid #d2d2d2;
+            border-left: 1px solid #d2d2d2;
+            padding: 5px;
+        }
+
+        .list-table tr td:last-child {
+            border-right: 1px solid #d2d2d2;
+        }
+
+        .list-table tr:last-child td {
+            border-bottom: 1px solid #d2d2d2;
+        }
+
+        .code {
+            background: #f8f8f8;
+            border: 1px solid #ccc;
+            margin-bottom: 2em;
+            padding: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: aquamarine;
+            border-spacing: 0;
+            white-space: nowrap;
+            border: 1px solid aquamarine;
+        }
+
+        button:hover,
+        button:visited,
+        button:active,
+        button:focus {
+            background-color: aqua;
+            border: 1px solid aqua;
+            outline: 0;
+        }
     </style>
 </head>
 
@@ -87,7 +97,8 @@
             <h3>JavaScript</h3>
             <div class="code">
                 var spin =new SpinLoading({
-                text: false
+                text: false,
+                autoShow: true
                 });
             </div>
         </div>
@@ -109,7 +120,7 @@
             </div>
             <h3>JavaScript</h3>
             <div class="code">
-                var myspin1 = new SpinLoading('demo1');
+                var myspin1 = new SpinLoading('demo1', { opaticy: .2 });
             </div>
         </div>
         <h3>效果二</h3>
@@ -159,7 +170,7 @@
             </div>
             <h3>JavaScript</h3>
             <div class="code">
-                var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...' });
+                var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...', autoShow: true });
                 <br>
                 setTimeout(function () {
                 myspin2.close()
@@ -204,9 +215,9 @@
     </div>
     <script src="./spin.js"></script>
     <script>
-        var myspin = new SpinLoading('demo', { text: false });
-        var myspin1 = new SpinLoading('demo1');
-        var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...' });
+        var myspin = new SpinLoading('demo', { text: false, autoShow: true });
+        var myspin1 = new SpinLoading('demo1', { opaticy: .2 });
+        var myspin2 = new SpinLoading('demo2', { text: '数据加载中,请稍后...', autoShow: true });
         setTimeout(function () {
             myspin2.close()
         }, 5000)

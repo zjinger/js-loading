@@ -30,3 +30,7 @@
 
 ![效果图](https://raw.githubusercontent.com/zjinger/js-loading/master/loader.gif)
 
+##更新
+- 自定义遮罩层 opacity，默认 0.6
+- 加载后是否打开遮罩 autoShow
+
