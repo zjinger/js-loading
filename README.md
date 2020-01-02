@@ -29,7 +29,7 @@
 ## 效果图
 
 ![效果图](https://raw.githubusercontent.com/zjinger/js-loading/master/loader.gif)
-
+![效果图2](https://github.com/zjinger/js-loading/blob/master/loader2.gif)
 ## 更新
 - 自定义遮罩层 opacity，默认 0.6
 - 加载后是否打开遮罩 autoShow
